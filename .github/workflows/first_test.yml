@@ -10,6 +10,10 @@ jobs :
         - name : Checkout repo
           uses : actions/checkout@v4
         - name : list the files
-          run  : ls
-        - name : Read the readme file contents
-          run  : cat README.md
+          run  : | 
+                 ls -lrth
+                 cat README.md   
+        # This is multi line command exe 
+
+       # - name : Read the readme file contents
+       #   run  : cat README.md
