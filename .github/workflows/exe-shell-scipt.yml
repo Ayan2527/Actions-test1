@@ -10,7 +10,7 @@ jobs :
               uses : actions/checkout@v6
             
             - name : List all Files in Repo
-              run : ls -lrth
+              run : ls -larth
 
             - name : Executing Shell Scripts
               run  : |
