@@ -1,0 +1,16 @@
+name : Generate ASCII Artwork Using a Prebuild Shell Script
+
+on : push
+
+jobs : 
+    ascii_job :
+        runs-on : ubuntu-latest
+        steps : 
+            - name : Checkout the Repo
+              uses : actions/checkout@v6
+            
+            - name : List all Files in Repo
+              run : ls -lrth
+
+            - name : Executing Shell Scripts
+              run  : ./ascii-script.sh
