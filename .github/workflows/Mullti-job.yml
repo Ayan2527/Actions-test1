@@ -25,7 +25,7 @@ jobs:
         runs-on : ubuntu-latest
         steps :
             - name : Download the artifacts
-              uses : actions/download-artifacts@v3
+              uses : actions/download-artifact@v8
               with : 
                 name : Dragon-text-file
             
@@ -38,7 +38,7 @@ jobs:
         runs-on : ubuntu-latest
         steps : 
              - name : Download the artifacts
-               uses : actions/download-artifacts@v3
+               uses : actions/download-artifact@v8
                with : 
                 name : Dragon-text-file
 
