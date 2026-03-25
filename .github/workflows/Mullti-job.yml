@@ -18,7 +18,7 @@ jobs:
                 path: Dragon.txt
 
           - name : Wait for 15 Seconds
-            run  : Sleep 15
+            run  : sleep 15
 
     Test  : 
         needs : Build
