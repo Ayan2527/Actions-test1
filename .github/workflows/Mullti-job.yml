@@ -30,7 +30,7 @@ jobs:
                 name : Dragon-text-file
             
             - name : Test file Exists or not
-              run  : grep -i "dragon" dragon.txt
+              run  : grep -i "dragon" Dragon.txt
               
     
     Deploy :
@@ -43,4 +43,4 @@ jobs:
                 name : Dragon-text-file
 
              -  name : Testing the File Contents
-                run  : cat dragon.txt
+                run  : cat Dragon.txt
