@@ -1,0 +1,46 @@
+name : Multi Job Workflow
+on : push
+
+jobs:
+    Build  : 
+         runs-on : ubuntu-latest
+         steps :
+          - name : Install Cowsay Binaries
+            run  : sudo apt-get install cowsay -y
+
+          - name : Execute the Cowsay Program
+            run  : Cowsay -f dragon "Run for cover , Iam a Dragon" >> Dragon.txt
+
+          - name : Upload the Dragon.txt file
+            uses : actions/upload-artifacts@v3
+            with :
+                name: Dragon-text-file
+                path: Dragon.txt
+
+          - name : Wait for 15 Seconds
+            run  : Sleep 15
+
+    Test  : 
+        needs : Build
+        runs-on : ubuntu-latest
+        steps :
+            - name : Download the artifacts
+              uses : actions/download-artifacts@v3
+              with : 
+                name : Dragon-text-file
+            
+            - name : Test file Exists or not
+              run  : grep -i "dragon" dragon.txt
+              
+    
+    Deploy :
+        needs: Test
+        runs-on : ubuntu-latest
+        steps : 
+             - name : Download the artifacts
+               uses : actions/download-artifacts@v3
+               with : 
+                name : Dragon-text-file
+                
+             -  name : Testing the File Contents
+                run  : cat dragon.txt
